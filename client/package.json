@@ -5,8 +5,12 @@
     "serve": "serve -s dist"
   },
   "dependencies": {
+    "css-loader": "^7.1.2",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react-dom": "^18.3.1",
+    "react-router": "^6.24.1",
+    "react-router-dom": "^6.24.1",
+    "style-loader": "^4.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.24.7",

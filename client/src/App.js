@@ -1,9 +1,12 @@
 import React from "react";
+import "./App.css";
+import { Outlet } from "react-router-dom";
 
 const App = () => {
   return (
     <div>
-      <h1>Movie Finder</h1>
+      <h1 className="title">Movie Finder</h1>
+      <Outlet />
     </div>
   );
 };
