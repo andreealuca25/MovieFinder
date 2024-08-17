@@ -1,6 +1,7 @@
 package com.example.movie_finder.user;
 
 
+import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -19,13 +20,13 @@ public class UserController {
 
 
     @PostMapping("/signup")
-    public ResponseEntity<String> signup(@RequestBody User user) {
+    public ResponseEntity<String> signup(@Valid @RequestBody User user) {
         userService.signup(user);
         return ResponseEntity.status(HttpStatus.CREATED).body("User signed up successfully");
     }
 
     @PostMapping("/login")
-    public ResponseEntity<String> login(@RequestBody User user) {
+    public ResponseEntity<String> login(@Valid @RequestBody User user) {
         return userService.login(user.getEmail(), user.getPassword())
                 .map(authenticatedUser -> ResponseEntity.ok("User logged in successfully"))
                 .orElse(ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Invalid credentials"));

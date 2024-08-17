@@ -1,5 +1,6 @@
 package com.example.movie_finder.actor;
 
+import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -25,12 +26,12 @@ public class ActorController {
     }
 
     @PostMapping("/add")
-    public Actor addActor(@RequestBody Actor actor) {
+    public Actor addActor(@Valid @RequestBody Actor actor) {
         return actorService.addNewActor(actor);
     }
 
     @PutMapping("/update/{id}")
-    public Actor updateActor(@PathVariable Long id, @RequestBody Actor updatedActor) {
+    public Actor updateActor(@PathVariable Long id, @Valid @RequestBody Actor updatedActor) {
         return actorService.updateActor(id, updatedActor);
     }
 

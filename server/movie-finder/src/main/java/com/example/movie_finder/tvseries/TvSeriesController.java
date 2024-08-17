@@ -1,5 +1,6 @@
 package com.example.movie_finder.tvseries;
 
+import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -25,12 +26,12 @@ public class TvSeriesController {
     }
 
     @PostMapping("/add")
-    public TvSeries addTvSeries(@RequestBody TvSeries tvSeries) {
+    public TvSeries addTvSeries(@Valid @RequestBody TvSeries tvSeries) {
         return tvSeriesService.addNewTvSeries(tvSeries);
     }
 
     @PutMapping("/update/{id}")
-    public TvSeries updateTvSeries(@PathVariable Long id, @RequestBody TvSeries updatedTvSeries) {
+    public TvSeries updateTvSeries(@PathVariable Long id, @Valid @RequestBody TvSeries updatedTvSeries) {
         return tvSeriesService.updateTvSeries(id, updatedTvSeries);
     }
 

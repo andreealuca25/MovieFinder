@@ -3,6 +3,7 @@ package com.example.movie_finder.actor;
 import com.example.movie_finder.movie.Movie;
 import com.example.movie_finder.tvseries.TvSeries;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -22,8 +23,11 @@ public class Actor {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NotBlank(message = "First name is mandatory.")
     private String firstName;
+    @NotBlank(message = "Last name is mandatory.")
     private String lastName;
+    @NotBlank(message = "Date of birth is mandatory.")
     private Date dateOfBirth;
 
     @ManyToMany
