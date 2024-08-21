@@ -1,5 +1,6 @@
 package com.example.movie_finder.movie;
 
+import com.example.movie_finder.actor.Actor;
 import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
 
@@ -33,6 +34,11 @@ public class MovieController {
     @PutMapping("/update/{id}")
     public Movie updateMovie(@PathVariable Long id, @Valid @RequestBody Movie updatedMovie) {
         return movieService.updateMovie(id, updatedMovie);
+    }
+
+    @PutMapping("/add-actor/{movie-id}")
+    public Movie addActor(@PathVariable(name="movie-id") Long movieId, @Valid @RequestBody Actor actor) {
+        return movieService.addActorToMovie(movieId, actor);
     }
 
     @DeleteMapping("/delete/{id}")

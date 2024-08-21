@@ -29,7 +29,7 @@ public class TvSeries {
     @NotBlank(message = "Description is mandatory.")
     private String description;
     @NotNull(message = "Genre is mandatory.")
-    @Enumerated(EnumType.STRING)
+    @Enumerated(EnumType.ORDINAL)
     private Genre genre;
     @NotNull(message = "Rating is mandatory.")
     private Double rating;

@@ -1,5 +1,6 @@
 package com.example.movie_finder.tvseries;
 
+import com.example.movie_finder.actor.Actor;
 import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
 
@@ -38,5 +39,10 @@ public class TvSeriesController {
     @DeleteMapping("/delete/{id}")
     public void deleteTvSeries(@PathVariable Long id) {
         tvSeriesService.deleteTvSeries(id);
+    }
+
+    @PutMapping("/add-actor/{tvseries-id}")
+    public TvSeries addActor(@PathVariable(name="tvseries-id") Long tvSeriesId, @Valid @RequestBody Actor actor) {
+        return tvSeriesService.addActorToTvSeries(tvSeriesId, actor);
     }
 }
